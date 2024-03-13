@@ -17,11 +17,6 @@ import com.teste.crm.repository.*;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-	@Autowired
-	//autowired injeta uma instancia de cliente repository
-	//exlcluir esse comando abaixo
-	private ClienteRepository clienteRepository;
-	
 	//resqponde a requisicao mapeada, /clientes
 	@GetMapping
 	public List<Cliente>listar() {
