@@ -17,17 +17,6 @@ import com.teste.crm.repository.*;
 @RequestMapping("/clientes")
 public class ClienteController {
 
-	//resqponde a requisicao mapeada, /clientes
-	@GetMapping
-	public List<Cliente>listar() {
 	
-		return clienteRepository.findAll();
-	}
-
-	@PostMapping
-	//requestbody convert o json em objeto java tipo cliente
-	public Cliente add(@RequestBody Cliente cliente) {
-		return clienteRepository.save(cliente);
-	}
 	
 }

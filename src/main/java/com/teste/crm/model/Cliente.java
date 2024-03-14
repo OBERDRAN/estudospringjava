@@ -16,23 +16,13 @@ public class Cliente {
 	//o proprio bd ira fz o auto incremento da id
 	private Long id;
 	
-	@Override
-	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Cliente other = (Cliente) obj;
-		return Objects.equals(id, other.id);
-	}
-
+	@Column(nullable = false)
+	//nullable é not null no bd
+	private String nome;
+	
+	@Column
+	private int idade;
+	
 	public Long getId() {
 		return id;
 	}
@@ -49,8 +39,28 @@ public class Cliente {
 		this.nome = nome;
 	}
 
-	@Column(nullable = false)
-	//nullable é not null no bd
-	private String nome;
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
+	}
 	
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Cliente other = (Cliente) obj;
+		return Objects.equals(id, other.id);
+	}
 }
