@@ -1,13 +1,15 @@
 package com.teste.crm.service;
 
-import java.util.List;
-
+import ch.qos.logback.classic.spi.IThrowableProxy;
+import ch.qos.logback.core.html.IThrowableRenderer;
+import com.teste.crm.dto.UserDTO;
+import com.teste.crm.model.Cliente;
+import com.teste.crm.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.teste.crm.model.Cliente;
-import com.teste.crm.repository.ClienteRepository;
-import com.teste.crm.dto.*;
+import javax.swing.text.html.Option;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -19,15 +21,11 @@ public class UserService {
 	//regra de negócio
 	//chamar no banco
 	
-	public List<UserDTO> listar(){
-		
-		Cliente cliente = new Cliente();
-		
-		
-		
-	}
-	
-	
+	public UserDTO buscandoPorId(Long id) throws Exception {
+		Optional<Cliente> cliente = clienterepository.findById(id);
 
-	
+		UserDTO userDTO = new UserDTO(cliente.get());
+
+		return userDTO;
+	}
 }
