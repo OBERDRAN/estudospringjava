@@ -1,6 +1,6 @@
 package com.teste.crm.dto;
 
-import jakarta.persistence.Column;
+import com.teste.crm.model.Cliente;
 
 public class UserDTO {
 	
@@ -12,28 +12,22 @@ public class UserDTO {
 	
 	private int idade;
 
-	public Long getId() {
-		return id;
+
+	public UserDTO (Cliente cliente) {
+		this.id = cliente.getId();
+		this.nome = cliente.getNome();
+		this.idade = cliente.getIdade();
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public String getNome() {
 		return nome;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
 	public int getIdade() {
 		return idade;
 	}
-
-	public void setIdade(int idade) {
-		this.idade = idade;
-	}
-
 }
